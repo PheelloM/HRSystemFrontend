@@ -1,0 +1,549 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a href="#" class="pull-left"><img
+                src="https://res.cloudinary.com/dz9esiuwh/image/upload/v1605257102/CCMA_Logo_p9lmjr.jpg" width="45"
+                alt="" class="d-inline-block align-middle mr-2"></a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Job Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header class="bg-primary text-white">
+    <div class="container text-center">
+        <h1>Welcome to CCMA Job Portal</h1>
+        <p class="lead">Declaration & Consent</p>
+    </div>
+</header>
+
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="container text-center">
+                <h2>Final Step</h2>
+                <p class="lead">You are required to declare if all information you provided is true and correct.</p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row d-flex justify-content-center">
+    <div class="col mb-4">
+        <form [formGroup]="declairationForm" (ngSubmit)="submit()">
+        <!-- Card -->
+        <div class="card">
+
+
+
+            <!--Card content-->
+            <div class="card-body">
+
+                <!--Title-->
+                <h4 class="card-title">Declaration</h4>
+                <!--Text-->
+
+                <p class="card-text">
+                </p>
+                <div class="row">
+                    <div class="col-sm-7">
+                        <h4>Questions</h4>
+                        <p class="card-text">
+                        </p>
+
+                        <p>1. It is important to the interview panel that you are honest,
+                            frank and do not make or cause to make, any misrepresentation in your responses and/or
+                            communication. Please confirm that this is so?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <h4>Yes / No</h4>
+                        <p class="card-text">
+                        </p>
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question1" value="yes" name="question1" id="defaultUncheckedq1">
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question1" value="no" name="question1" id="defaultcheckedq1">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <h4>You may provide details or comment</h4>
+                        <p class="card-text">
+                        </p>
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q1Comment"
+                                placeholder="Comment">
+                        </div>
+                    </div>
+
+                    <p class="card-text">
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>2. Please confirm that the qualifications,
+                            experience and employment history reflected in the CV or any other documentation/sources,
+                            submitted by you is correct?
+                        <p>
+                    </div>
+
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question2" value="yes" name="question2" id="defaultUncheckedq2" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question2" value="no" name="question2" id="defaultcheckedq2" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q2Comment"
+                                placeholder="Comment">
+                        </div>
+                    </div>
+                </div>
+
+              <div class="row">
+                <div class="col-sm-7">
+                  <p>3. Do you consent to CCMA verifying your qualifications, and work experience including
+                    contacting your previous employer(s)?
+                  </p>
+                </div>
+                <div class="col-sm-2">
+                  <label class="radio-container m-r-55">Yes
+                    <input type="radio"  id="defaultUncheckedq3" formControlName="Q3Radios" name="Q3Radios" required>
+                    <span class="checkmark"></span>
+                  </label>
+                  &nbsp; &nbsp;
+                  <label class="radio-container">No
+                    <input type="radio"  id="defaultcheckedq3" formControlName="Q3Radios" name="Q3Radios" required>
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="col-sm-3">
+                  <div class="input-group">
+                    <input class="input--style-6" type="text" style="width:100%" style="width:100%" formControlName="Q3Comment" name="Q3Comment" id="q3_comment" placeholder="Comment" required>
+                  </div>
+                </div>
+              </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>4. Have you ever been charged or convicted of any criminal offence?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question4" value="yes" name="question4" id="defaultUncheckedq4" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question4" value="no" name="question5" id="defaultcheckedq4" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q4Comment"
+                                id="q4_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>5. Are you presently under investigation by South African Police Services or any person or
+                            institution
+                            (including past or current employer) for any alleged criminal act or alleged act of
+                            misconduct or
+                            dishonesty?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question5" value="yes" name="question5" id="defaultUncheckedq5" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question5" value="no" name="question5" id="defaultcheckedq5" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q5Comment"
+                                id="q5_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>6. Have your services ever been terminated for any alleged act of misconduct or any act
+                            involving
+                            allegations related to dishonesty e.g. fraud or theft?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question6" value="yes" name="question6" id="defaultUncheckedq6" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question6" value="no" name="question6" id="defaultcheckedq6" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q6Comment"
+                                id="q6_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>7. Have you ever been suspended or disbarred from any professional organisation?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio"formControlName="question7" value="yes" name="question7" id="defaultUncheckedq7" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question7" value="no" name="question7" id="defaultcheckedq7" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q7Comment"
+                                id="q7_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>8. Do you have relations with any of the CCMA employee(s) or governance committee members? If
+                            yes, list
+                            type of relations.
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultUncheckedq8" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultcheckedq8" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q8Comment"
+                                id="q8_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>9. Have you worked for CCMA before? If yes, from when until when and what was the reason for
+                            your
+                            departure?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question9" value="yes" name="question9" id="defaultUncheckedq9" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question9" value="no" name="question9" id="defaultcheckedq9" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" id="q9_comment"
+                                name="Q9Comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>10. Are you in good standing with South African Receiver of Revenue? If not, why?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question10" value="yes" name="question10" id="defaultUncheckedq10" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question10" value="no" name="question10" id="defaultcheckedq10" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q10Comment"
+                                id="q10_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>11. Are you involved in any positions/ roles or have any interests that could present any
+                            conflicts for
+                            this position?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question11" value="yes" name="question11" id="defaultUncheckedq11" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question11" value="no" name="question11" id="defaultcheckedq11" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q11Comment"
+                                id="q11_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>12. In the event that you are appointed, is there anything either in your work or personal
+                            life that
+                            may impact negatively on your ability to
+                            fulfil the responsibilities and execute this role completely?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question12" value="yes" name="question12" id="defaultUncheckedq12" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question12" value="no" name="question12" id="defaultcheckedq12" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q12Comment"
+                                id="q12_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>13. Do you have anything else that you think is of relevance that you may want to disclose or
+                            think
+                            requires disclosure?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question13" value="yes" name="question13" id="defaultUncheckedq13" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question13" value="no" name="question13" id="defaultcheckedq13" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q13Comment"
+                                id="q13_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>14. Please note that if any information submitted, disclosed or withheld by you during or
+                            subsequent to
+                            the recruitment process, is found to be false, incorrect, misleading or fraudulent and you
+                            have been
+                            successful in the appointment, the CCMA reserves the right to dismiss you summarily. Do you
+                            understand
+                            this?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question14" value="yes" name="question14" id="defaultUncheckedq14" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question14" value="no" name="question14" id="defaultcheckedq14" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q14Comment"
+                                id="q14_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>15. Are you a South African Citizen?
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question15" value="yes" name="question15" id="defaultUncheckedq15" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question15" value="no" name="question15" id="defaultcheckedq15" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>16. If no, do you have permanent Residency? If yes, attach Permanent Residency along with
+                            your CV
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question16" value="yes" name="question16" id="defaultUncheckedq16" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question16" value="no" name="question16" id="defaultcheckedq16" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <p>17. Do you consent to CCMA verifying the Permanent Residency
+                        </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="radio-container m-r-55">Yes
+                            <input type="radio" formControlName="question17" value="yes" name="question17" id="defaultUncheckedq18" required>
+                            <span class="checkmark"></span>
+                        </label>
+                        &nbsp; &nbsp;
+                        <label class="radio-container">No
+                            <input type="radio" formControlName="question17" value="no" name="question17" id="defaultcheckedq18" required>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="input-group">
+                            <input class="input--style-6" type="text" style="width:100%" name="Q18Comment"
+                                id="q18_comment" placeholder="Comment" required>
+                        </div>
+                        <p class="card-text">
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <button type="button" class="btn btn-default" >Previous</button>
+
+            <button type="submit" class="btn btn-primary"data-toggle="popover"
+                title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Submit</button>
+        </div> <br/>
+    </form>
+    </div>
+
+
+</div>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<!-- Default button -->
+
+
+
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; CCMA 2020</p>
+    </div>
+    <!-- /.container -->
+</footer>

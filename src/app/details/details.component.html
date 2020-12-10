@@ -1,0 +1,605 @@
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w905">
+
+    <div class="card card-6">
+      <div class="card-heading">
+        <h2 class="title">&nbsp; &nbsp; Personal Details</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="detailsForm" (ngSubmit)="submit()">
+          <div class="form-row">
+            <div class="name">Title</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="title" name="title" id="title_select">
+                    <option value="">Choose option</option>
+                    <option value="mr">Mr.</option>
+                    <option value="mrs">Mrs.</option>
+                    <option value="miss">Miss</option>
+                    <option value="dr">Dr.</option>
+                    <option value="prof">Prof.</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                  <div *ngIf="detailsFormControl.title.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.title.errors.required" class="error">
+                      Title is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-row m-b-55">
+            <div class="name">Full Names</div>
+            <div class="value">
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group-desc">
+                    <input formControlName="firstName" class="input--style-6" type="text" name="txtFname"
+                      id="first_name" placeholder="First name" />
+                    <div *ngIf="detailsFormControl.firstName.invalid " class="alert alert-danger">
+
+                      <div *ngIf="detailsFormControl.firstName.errors.required" class="error">
+                        First name is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group-desc">
+                    <input formControlName="lastName" class="input--style-6" type="text" name="txtLname" id="last_name"
+                      placeholder="Surname" />
+                    <div *ngIf="detailsFormControl.lastName.invalid " class="alert alert-danger">
+
+                      <div *ngIf="detailsFormControl.lastName.errors.required" class="error">
+                        Last name is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row p-t-20">
+            <label class="name">Gender</label>
+            <div class="row row-space">
+              <label class="radio-container m-r-55">Male
+                <input formControlName="gender" value="male" type="radio" id="gender_male" />
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">Female
+                <input formControlName="gender" value="female" type="radio" id="gender_female" />
+                <span class="checkmark"></span>
+              </label>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <label class="radio-container">Other
+                <input formControlName="gender" value="other" type="radio" id="gender_other_selected" />
+                <span class="checkmark"></span>
+              </label>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+
+              <div id="ifGenderOther_selected" style="display:none">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" name="gender_other1" id="gender_other" style="width:250%"
+                    placeholder="If Other, please state" required>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Race</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="race" id="race_selected">
+                    <option value="">Choose option</option>
+                    <option value="african">African</option>
+                    <option value="white">White</option>
+                    <option value="indian">Indian</option>
+                    <option value="coloured">Coloured</option>
+                    <option value="other">Other</option>
+
+                  </select>
+
+                  <div *ngIf="detailsFormControl.race.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.race.errors.required" class="error">
+                      Race is required.
+                    </div>
+                  </div>
+
+                  &nbsp; &nbsp; &nbsp; &nbsp;
+                  <div id="ifRaceOther" style="display:none">
+                    <div class="input-group">
+                      <input class="input--style-6" type="text" name="race_other" id="race_other" style="width:50%"
+                        placeholder="If Other, please state" required>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">SA ID Number</div>
+            <div class="value">
+              <div class="row row-space">
+                <p> Do you have South African ID</p>
+                <label class="radio-container m-r-55">Yes
+                  <input formControlName="isSouthAfrican" value="true" type="radio" id="id_yes" />
+                  <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">No
+                  <input formControlName="isSouthAfrican" value="false" type="radio" id="id_no" />
+                  <span class="checkmark"></span>
+                </label>
+                <br />
+              </div>
+              <div id="ifYes" *ngIf="detailsForm.get('isSouthAfrican').value === 'true'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" formControlName="idNumber" id="id_number"
+                    placeholder="ID Number" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="ifNo" *ngIf="detailsForm.get('isSouthAfrican').value === 'false'">
+            <div class="form-row">
+              <div class="name">Passport Number</div>
+              <div class="value">
+                <div class="input-group">
+                  <input formControlName="passportNumber" class="input--style-6" type="text" id="passport_number"
+                    placeholder="Passport Number" />
+                </div>
+                <div class="input-group">
+                  <input formControlName="countryOfIssue" class="input--style-6" type="text" id="country_of_issue"
+                    placeholder="Country of Issue" />
+                </div>
+                <div class="input-group">
+                  <input formControlName="expiryDate" class="input--style-6" type="text" id="expiry_date"
+                    placeholder="Expiry  Date" />
+                </div>
+                <br />
+                <div class="row row-space">
+                  <p> Do you have a valid work permit</p>
+                  <label class="radio-container m-r-55">Yes
+                    <input formControlName="workPermit" type="radio" value="true" id="permit_yes" required>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">No
+                    <input formControlName="workPermit" type="radio" value="false" id="permit_no" required>
+                    <span class="checkmark"></span>
+                  </label>
+                  <br />
+
+
+                </div>
+                <div class="input-group">
+                  <input formControlName="workPermitDetails" class="input--style-6" type="text" name="permit_details"
+                    id="work_permit_details" placeholder="Provide Details of work permit">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row p-t-20">
+            <label class="name">Disability</label>
+            <div class="row row-space">
+              <label class="radio-container m-r-55">Yes
+                <input formControlName="disability" value="true" type="radio" id="disability_yes" required>
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">No
+                <input formControlName="disability" value="false" type="radio" id="disability_no" required>
+                <span class="checkmark"></span>
+              </label>
+              <br />
+              <div class="value" *ngIf="detailsForm.get('disability').value === 'true'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" style="width:305%" name="disability" id="disability_details"
+                    placeholder="If yes, please supply us with the nature of disability">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Email address</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="email" class="input--style-6" type="email" id="email_address"
+                  placeholder="example@email.com" />
+
+                <div *ngIf="detailsFormControl.email.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.email.errors.required" class="error">
+                    Email is required.
+                  </div>
+                  <div *ngIf="detailsFormControl.email.errors.email" class="error">
+                    Incorrect email format.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Contact number</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="contactNumber" class="input--style-6" type="text" id="contact_number"
+                  placeholder="+27830000001" />
+
+                <div *ngIf="detailsFormControl.contactNumber.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.contactNumber.errors.required" class="error">
+                    Contact number is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Alternative Contact number</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="altContactNumber" class="input--style-6" type="text"
+                  name="alternative_contact_number" placeholder="+27831111110" />
+
+                <div *ngIf="detailsFormControl.altContactNumber.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.altContactNumber.errors.required" class="error">
+                    Alternate contact number is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Resdidential Address</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea formControlName="resAddress" id="" cols="30" rows="10"></textarea>
+                <div *ngIf="detailsFormControl.resAddress.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.resAddress.errors.required" class="error">
+                    Residential address is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Postal Address</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea formControlName="postAddress" id="" cols="30" rows="10"></textarea>
+                <div *ngIf="detailsFormControl.postAddress.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.postAddress.errors.required" class="error">
+                    Postal address is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Highest Standard Passed</div>
+            <div class="value">
+              &nbsp; &nbsp;
+              <label class="input-container">for eg.matric,grade 11, etc
+                <div class="input-group">
+                  <input formControlName="highestGradePassed" class="input--style-6" type="text"
+                    id="highest_grade_passed" placeholder="Matric, Grade 11, Grade 10, etc" />
+
+                  <div *ngIf="detailsFormControl.highestGradePassed.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.highestGradePassed.errors.required" class="error">
+                      Email is required.
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Qualification(s)</div>
+            <div class="value">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h4>Name of Qualification &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Institution &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Year Obtained &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addQualification()">Add Qualification</button>
+                </div>
+              </div>
+
+              <ng-container formArrayName="qualifications">
+                <div class="row" *ngFor="let _ of qualifications.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="qualification" class="input--style-6" type="text" style="width:100%"
+                          placeholder="Qualification" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="institution" class="input--style-6" type="text" style="width:100%"
+                          placeholder="Institution" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="year" class="input--style-6" type="text" style="width:100%"
+                          placeholder="year" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <button type="button" (click)="removeQualification(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Work Experience</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="workExperience" id="work_experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="detailsFormControl.workExperience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.workExperience.errors.required" class="error">
+                      Work experience is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <style>
+            .bordered {
+              width: 170px;
+              height: 10px;
+              padding: 15px;
+              border: 1px solid gray;
+              border-radius: 8px;
+            }
+          </style>
+          <div id="ifNoExperience" style="display:none">
+            <div class="form-row">
+              <div class="name">Employment of History</div>
+              <div class="value">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <h4>Name of Employer</h4>
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="qualification_1" id="name_of_employer"
+                        placeholder="Name of Employer" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <h4>Job Title</h4>
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="institution_1" id="job_title" placeholder="Job Title"
+                        required>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <h4>Date Started</h4>
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_1" id="date_started"
+                        placeholder="Date Started" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <h4>Date Ended</h4>
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_1" id="date_ended"
+                        placeholder="Date Ended" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-5">
+                    <h4>Reason For Leaving</h4>
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_1" id="reason_for_leaving"
+                        placeholder="Reason For Leaving" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="qualification_2" placeholder="Name of Employer">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="institution_1" placeholder="Job Title">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_2" placeholder="Date Started">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_2" placeholder="Date Ended">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_2" placeholder="Reason For Leaving">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="qualification_3" placeholder="Name of Employer">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="institution_1" placeholder="Job Title">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_3" placeholder="Date Started">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_3" placeholder="Date Ended">
+                    </div>
+                  </div>
+                  <div class="col-5">
+                    <div class="input-group">
+                      <input class="bordered" type="text" name="year_obtained_3" placeholder="Reason For Leaving">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Membership of Professional Bodies</div>
+            <div class="value">
+              <div class="row">
+
+                <div class="col-sm-2">
+                  <h4>Name of Institution &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Current &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addProfesionalBodies()">Add Profesional bodies</button>
+                </div>
+              </div>
+
+              <ng-container formArrayName="profBodies">
+                <div *ngFor="let _ of profBodies.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="institution" class="input--style-6" type="text" style="width:100%"
+                            placeholder="Institution" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="rs-select2 js-select-simple select--no-search">
+                          <select formControlName="current" id="current_select_2">
+                            <option value="">Choose option</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="button" (click)="removeProfesionalBody(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Upload CV / Resume </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_cv" id="file" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your CV/Resume. Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">ID/Passport </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_id" id="fileid" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your ID / Passport. Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Qualification(s) </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_qualification" id="filequalification" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your Qualification(s). Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2" type="submit" name="Submit">Next</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
