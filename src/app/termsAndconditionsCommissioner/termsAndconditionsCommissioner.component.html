@@ -1,0 +1,110 @@
+
+<div id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a href="#" class="pull-left"><img src="https://res.cloudinary.com/dz9esiuwh/image/upload/v1605257102/CCMA_Logo_p9lmjr.jpg" width="45" alt="" class="d-inline-block align-middle mr-2"></a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Job Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Welcome to CCMA Job Portal</h1>
+    <p class="lead">Terms & Conditions</p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="container text-center">
+        <div class="col-lg-8 mx-auto">
+          <h2>First Step</h2>
+          <p class="lead">You are required to read and understand the below information.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="row d-flex justify-content-center">
+  <div class="col mb-4">
+    <!-- Card -->
+    <div class="card">
+
+
+
+      <!--Card content-->
+      <div class="card-body">
+        <form [formGroup]="termsAndconditionsForm" (ngSubmit)="submit()">
+        <!--Title-->
+        <h4 class="card-title">Terms & Conditions</h4>
+        <!--Text-->
+        <p class="card-text">I declare that the information and details furnished in this application form are true and correct to the best of my knowledge and belief, and I will not willfully suppressed any material fact. I hereby declare that the information given above is true to the best of my knowledge, information and belief.</p>
+
+        <p class="card-text">CCMA(“the Company”) may obtain a “consumer report” about you from a
+          consumer reporting agency for employment purposes. A “consumer” report is a
+          background screening report that may contain information regarding your criminal history,
+          driving history, and other information about you. It may bear upon your character, general
+          reputation, personal characteristics, and/or mode of living. Template to be confirmed</p>
+
+        <!-- Default unchecked -->
+        <div class="custom-control custom-radio">
+          <input formControlName="defaultExampleRadios" value="Agree" type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+          <label class="custom-control-label" for="defaultUnchecked">Agree</label>
+        </div>
+
+        <!-- Default checked -->
+        <div class="custom-control custom-radio">
+          <input formControlName="defaultExampleRadios" value="Disagree" type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios">
+          <label class="custom-control-label" for="defaultChecked">Disagree</label>
+        </div>
+          <div *ngIf="isSubmitted && tacdefaultExampleRadios.errors?.required" class="error">
+            <p>Question 1 is required.</p>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <button type="button" class="btn btn-default" routerLink=".." >Previous</button>
+
+            <button type="submit" class="btn btn-primary" data-toggle="popover" title="Popover title" data-content="And here's
+  some amazing content. It's very engaging. Right?">Continue</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>
+
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<!-- Default button -->
+
+
+
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; CCMA 2020</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+</div>
+
