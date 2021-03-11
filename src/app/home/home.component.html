@@ -1,0 +1,218 @@
+
+
+<div id="page-top">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a href="#" class="pull-left"><img src="https://res.cloudinary.com/dz9esiuwh/image/upload/v1605257102/CCMA_Logo_p9lmjr.jpg" width="45" alt="" class="d-inline-block align-middle mr-2"></a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Job Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Welcome to CCMA Job Portal</h1>
+    <p class="lead">See our full list of jobs below</p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="container text-center">
+        <div class="col-lg-8 mx-auto">
+          <h2>Job listings</h2>
+          <p class="lead">Please select a job from the list below to learn more or apply</p>
+        </div>
+
+      </div>
+      <div class="container-fluid p-0">
+        <div class="col-ms-12">
+          <a href="#" ><img src="https://res.cloudinary.com/dz9esiuwh/image/upload/v1605257359/Green3_xob8hz.png" width="1200" alt="" ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row d-flex justify-content-center">
+  <form [formGroup]="homeForm" (ngSubmit)="submit()">
+  <div class="list-group">
+    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start disabled">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-2 h5">Senior Developer</h5>
+        <small>10 days ago</small>
+      </div>
+      <p class="mb-2">Johannesburg, Gauteng, South Africa</p>
+      <small>Closing date: 30 November 2020</small>
+    </a>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary disabled"  (click)="open(content)" data-toggle="modal">
+      More Info on Senior Developer
+    </button>
+
+    <a href="#!" class="list-group-item list-group-item-action flex-column align-items-start disabled">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-2 h5">Senior Commissioner</h5>
+        <small>8 days ago</small>
+      </div>
+      <p class="mb-2">Johannesburg, Gauteng, South Africa</p>
+      <small>Closing date: 28 November 2020</small>
+    </a>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary disabled" (click)="openCommissioner(contentCommissioner)" >
+      More Info on Commissioner
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Client Portfolio Executive | Ref. 0124/202010 | Ends 28 November 2020</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <b>About us</b>
+            Make a promise
+            be deeply invested
+            value our differences
+            build trust, not territory
+            have courage
+            always do the right thing
+            stay curious and you have one simple goal: to improve the lives of customers through simple, effective solutions that meet their needs, contact us today and join a winning team. All appointments will be made in line with the Bank’s Employment Equity plan The Bank actively supports the recruitment and advancement of individuals with disabilities. We recommend that candidates be encouraged to declare their disability and consult the Bank should they require reasonable accommodation.
+            purpose
+            Responsible for the oversight of all activities performed by team representatives serving a client segment of 150 million plus.
+            <b>Experience and Qualifications</b>
+            Related Degree.
+            3 – 4 Years judgmental credit experience.
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='jobs.html'" target="_blank">Apply Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-java-title">Senior Java Developer | Ends 28 November 2020</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+            <div class="modal-body">
+              <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" novalidate>
+
+                <div class="form-group">
+                  <label for="refnumber">Ref.</label>
+                  <div class="input-group">
+                    <input type="text" formControlName="refnumber"  id="refnumber" value ="0122/2020" name="refnumber"
+                           readonly>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <b>About us</b>
+                  Make a promise
+                  be deeply invested
+                  value our differences
+                  build trust, not territory
+                  have courage
+                  always do the right thing
+                  stay curious and you have one simple goal: to improve the lives of customers through simple, effective solutions that meet their needs, contact us today and join a winning team. All appointments will be made in line with the Bank’s Employment Equity plan The Bank actively supports the recruitment and advancement of individuals with disabilities. We recommend that candidates be encouraged to declare their disability and consult the Bank should they require reasonable accommodation.
+                  purpose
+                  Responsible for the oversight of all activities performed by team representatives serving a client segment of 150 million plus.
+                  <b>Experience and Qualifications</b>
+                  Related Degree.
+                  5+ Related Years of Experience.
+                </div>
+                <div class="modal-footer">
+                  <button type="onSubmit(f)" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click')">Apply Online</button>
+                  <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+                </div>
+              </form>
+            </div>
+
+          </ng-template>
+
+    <ng-template #contentCommissioner let-modal>
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-commissioner-title">Senior Commissioner | Ends 28 December 2020</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <form #a="ngForm" (ngSubmit)="onCommissionerSubmit(a.value)" novalidate>
+
+          <div class="form-group">
+            <label for="refnumber">Ref.</label>
+            <div class="input-group">
+              <input type="text" formControlName="refnumber"  id="refsnumber" value ="0122/202010" name="refnumber"
+                     readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <b>About us</b>
+            Make a promise
+            be deeply invested
+            value our differences
+            build trust, not territory
+            have courage
+            always do the right thing
+            stay curious and you have one simple goal: to improve the lives of customers through simple, effective solutions that meet their needs, contact us today and join a winning team. All appointments will be made in line with the Bank’s Employment Equity plan The Bank actively supports the recruitment and advancement of individuals with disabilities. We recommend that candidates be encouraged to declare their disability and consult the Bank should they require reasonable accommodation.
+            purpose
+            Responsible for the oversight of all activities performed by team representatives serving a client segment of 150 million plus.
+            <b>Experience and Qualifications</b>
+            Related Degree.
+            5+ Related Years of Experience.
+          </div>
+          <div class="modal-footer">
+            <button type="onCommissionerSubmit(f)" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click')">Apply Online</button>
+            <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+    </ng-template>
+
+
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; CCMA 2020</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+
+</div>

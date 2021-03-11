@@ -4,41 +4,41 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
-  selector: 'app-termsAndconditions',
-  templateUrl: './termsAndconditions.component.html',
-  styleUrls: ['./termsAndconditions.component.scss']
+  selector: 'app-termsAndconditionsCommissioner',
+  templateUrl: './termsAndconditionsCommissioner.component.html',
+  styleUrls: ['./termsAndconditionsCommissioner.component.scss']
 })
 
-export class TermsAndConditionsComponent implements OnInit {
-  termsAndconditionsForm: FormGroup;
+export class TermsAndConditionsCommissionerComponent implements OnInit {
+  termsAndconditionsCommissionerForm: FormGroup;
   isSubmitted = false;
 
   constructor(private _fb: FormBuilder, private _router: Router){}
 
   ngOnInit(): void {
-      this.termsAndconditionsForm = this._fb.group({
+      this.termsAndconditionsCommissionerForm = this._fb.group({
         defaultExampleRadios: ['', Validators.required],
         });
         }
-        get termsAndconditionsFormControl() {
-              return this.termsAndconditionsForm.controls;
+        get termsAndconditionsCommissionerFormControl() {
+              return this.termsAndconditionsCommissionerForm.controls;
         }
 
         get tacdefaultExampleRadios() {
-                  return this.termsAndconditionsForm.get('defaultExampleRadios');
+                  return this.termsAndconditionsCommissionerForm.get('defaultExampleRadios');
         }
 
   submit(){
      debugger;
      this.isSubmitted = true;
-             if(!this.termsAndconditionsForm.valid) {
+             if(!this.termsAndconditionsCommissionerForm.valid) {
                 alert("Enter Required Value");
                 return false;
              }else {
-                      if(this.termsAndconditionsForm.value.defaultExampleRadios === "Disagree"){
-                           this._router.navigate(['/home', this.termsAndconditionsForm]);
+                      if(this.termsAndconditionsCommissionerForm.value.defaultExampleRadios === "Disagree"){
+                           this._router.navigate(['/home', this.termsAndconditionsCommissionerForm]);
                       }else{
-                             this._router.navigate(['/details', this.termsAndconditionsForm]);
+                             this._router.navigate(['/detailsCommissioner', this.termsAndconditionsCommissionerForm]);
                            }
                    }
           }

@@ -1,24 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>CCMA Job Portal - Apply for a Job</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/scrolling-nav.css" rel="stylesheet">
-
-</head>
-
-<body id="page-top">
+<div id="page-top">
 
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -67,18 +48,18 @@
 
       <!--Card content-->
       <div class="card-body">
-
+        <form [formGroup]="termsAndconditionsForm" (ngSubmit)="submit()">
         <!--Title-->
         <h4 class="card-title">Terms & Conditions</h4>
         <!--Text-->
-        <p class="card-text">I declare that the information and details furnished in this application form are true and correct to the best of my knowledge and belief, and I will not willfully suppressed any material fact. I hereby declare that the information given above is true to the best of my knowledge, information and belief.</p></br></br>
+        <p class="card-text">I declare that the information and details furnished in this application form are true and correct to the best of my knowledge and belief, and I will not willfully suppressed any material fact. I hereby declare that the information given above is true to the best of my knowledge, information and belief.</p>
 
         <p class="card-text">CCMA(“the Company”) may obtain a “consumer report” about you from a
           consumer reporting agency for employment purposes. A “consumer” report is a
           background screening report that may contain information regarding your criminal history,
           driving history, and other information about you. It may bear upon your character, general
           reputation, personal characteristics, and/or mode of living. Template to be confirmed</p>
-        </br>
+
         <!-- Default unchecked -->
         <div class="custom-control custom-radio">
           <input formControlName="defaultExampleRadios" value="Agree" type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
@@ -87,26 +68,34 @@
 
         <!-- Default checked -->
         <div class="custom-control custom-radio">
-          <input formControlName="defaultExampleRadios" value="disagree" type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+          <input formControlName="defaultExampleRadios" value="Disagree" type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios">
           <label class="custom-control-label" for="defaultChecked">Disagree</label>
         </div>
+          <div *ngIf="isSubmitted && tacdefaultExampleRadios.errors?.required" class="error">
+            <p>Question 1 is required.</p>
+          </div>
+          <div class="row d-flex justify-content-center">
+            <button type="button" class="btn btn-default" routerLink=".." >Previous</button>
 
+            <button type="submit" class="btn btn-primary" data-toggle="popover" title="Popover title" data-content="And here's
+  some amazing content. It's very engaging. Right?">Continue</button>
+          </div>
+        </form>
       </div>
 
     </div>
 
   </div>
+
+
+
 </div>
 
 
 <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
 <!-- Default button -->
 
-<div class="row d-flex justify-content-center">
-  <button type="button" class="btn btn-default" routerLink=".." >Previous</button>
 
-  <button type="submit" name="Submit" class="btn btn-primary" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Continue</button>
-</div> </br></br>
 
 
 <!-- Footer -->
@@ -117,24 +106,5 @@
   <!-- /.container -->
 </footer>
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</div>
 
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom JavaScript for this theme -->
-<script src="js/scrolling-nav.js"></script>
-
-<script>
-  // popovers Initialization
-$(function () {
-$('.example-popover').popover({
-container: 'body'
-})
-})</script>
-
-</body>
-
-</html>

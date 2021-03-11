@@ -69,14 +69,19 @@
                         <p class="card-text">
                         </p>
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question1" value="yes" name="question1" id="defaultUncheckedq1">
+                            <input type="radio" formControlName="question1" value="yes" name="question1" id="defaultUncheckedq1"
+                                   [(ngModel)]="this.service.getFormDataDecl().question1">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question1" value="no" name="question1" id="defaultcheckedq1">
+                            <input type="radio" formControlName="question1" value="no" name="question1" id="defaultcheckedq1"
+                                   [(ngModel)]="this.service.getFormDataDecl().question1">
                             <span class="checkmark"></span>
                         </label>
+                      <div *ngIf="isSubmitted && declairationFormQ1.errors?.required" class="error">
+                        <p>Question 1 is required.</p>
+                      </div>
                     </div>
 
                     <div class="col-sm-3">
@@ -84,9 +89,15 @@
                         <p class="card-text">
                         </p>
                         <div class="input-group">
-                            <input class="input--style-6" type="text" style="width:100%" name="Q1Comment"
-                                placeholder="Comment">
+
+                            <input class="input--style-6" type="text" style="width:100%" formControlName="q1Comment"
+                                   name="q1Comment" placeholder="Comment">
+
                         </div>
+                      <div *ngIf="declairationFormControl.question1.value == 'yes' &&
+                        declairationFormControl.q1Comment.value == ''" class="error">
+                        <p>Question 1 Comment is required.</p>
+                      </div>
                     </div>
 
                     <p class="card-text">
@@ -103,12 +114,14 @@
 
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question2" value="yes" name="question2" id="defaultUncheckedq2" required>
+                            <input type="radio" formControlName="question2" value="yes" name="question2" id="defaultUncheckedq2"
+                                   [(ngModel)]="this.service.getFormDataDecl().question2">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question2" value="no" name="question2" id="defaultcheckedq2" required>
+                            <input type="radio" formControlName="question2" value="no" name="question2" id="defaultcheckedq2"
+                                   [(ngModel)]="this.service.getFormDataDecl().question2">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -128,12 +141,14 @@
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-container m-r-55">Yes
-                    <input type="radio"  id="defaultUncheckedq3" formControlName="Q3Radios" name="Q3Radios" required>
+                    <input type="radio"  id="defaultUncheckedq3" formControlName="question3" name="question3"
+                          value="yes" [(ngModel)]="this.service.getFormDataDecl().question3">
                     <span class="checkmark"></span>
                   </label>
                   &nbsp; &nbsp;
                   <label class="radio-container">No
-                    <input type="radio"  id="defaultcheckedq3" formControlName="Q3Radios" name="Q3Radios" required>
+                    <input type="radio"  id="defaultcheckedq3" formControlName="question3" name="question3"
+                           value="no" [(ngModel)]="this.service.getFormDataDecl().question3">
                     <span class="checkmark"></span>
                   </label>
                 </div>
@@ -153,12 +168,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question4" value="yes" name="question4" id="defaultUncheckedq4" required>
+                            <input type="radio" formControlName="question4" value="yes" name="question4" id="defaultUncheckedq4"
+                                   [(ngModel)]="this.service.getFormDataDecl().question4" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question4" value="no" name="question5" id="defaultcheckedq4" required>
+                            <input type="radio" formControlName="question4" value="no" name="question4" id="defaultcheckedq4"
+                                   [(ngModel)]="this.service.getFormDataDecl().question4" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -183,12 +200,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question5" value="yes" name="question5" id="defaultUncheckedq5" required>
+                            <input type="radio" formControlName="question5" value="yes" name="question5" id="defaultUncheckedq5"
+                                   [(ngModel)]="this.service.getFormDataDecl().question5">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question5" value="no" name="question5" id="defaultcheckedq5" required>
+                            <input type="radio" formControlName="question5" value="no" name="question5" id="defaultcheckedq5"
+                                   [(ngModel)]="this.service.getFormDataDecl().question5">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -211,12 +230,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question6" value="yes" name="question6" id="defaultUncheckedq6" required>
+                            <input type="radio" formControlName="question6" value="yes" name="question6" id="defaultUncheckedq6"
+                                   [(ngModel)]="this.service.getFormDataDecl().question6">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question6" value="no" name="question6" id="defaultcheckedq6" required>
+                            <input type="radio" formControlName="question6" value="no" name="question6" id="defaultcheckedq6"
+                                   [(ngModel)]="this.service.getFormDataDecl().question6">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -237,12 +258,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio"formControlName="question7" value="yes" name="question7" id="defaultUncheckedq7" required>
+                            <input type="radio"formControlName="question7" value="yes" name="question7" id="defaultUncheckedq7"
+                                   [(ngModel)]="this.service.getFormDataDecl().question7" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question7" value="no" name="question7" id="defaultcheckedq7" required>
+                            <input type="radio" formControlName="question7" value="no" name="question7" id="defaultcheckedq7"
+                                   [(ngModel)]="this.service.getFormDataDecl().question7">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -265,12 +288,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultUncheckedq8" required>
+                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultUncheckedq8"
+                                   [(ngModel)]="this.service.getFormDataDecl().question8" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultcheckedq8" required>
+                            <input type="radio" formControlName="question8" value="yes" name="question8" id="defaultcheckedq8"
+                                   [(ngModel)]="this.service.getFormDataDecl().question8" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -293,11 +318,13 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question9" value="yes" name="question9" id="defaultUncheckedq9" required>
+                            <input type="radio" formControlName="question9" value="yes" name="question9" id="defaultUncheckedq9"
+                                   [(ngModel)]="this.service.getFormDataDecl().question9" >
                             <span class="checkmark"></span>
                         </label>
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question9" value="no" name="question9" id="defaultcheckedq9" required>
+                            <input type="radio" formControlName="question9" value="no" name="question9" id="defaultcheckedq9"
+                                   [(ngModel)]="this.service.getFormDataDecl().question9">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -318,12 +345,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question10" value="yes" name="question10" id="defaultUncheckedq10" required>
+                            <input type="radio" formControlName="question10" value="yes" name="question10" id="defaultUncheckedq10"
+                                   [(ngModel)]="this.service.getFormDataDecl().question10">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question10" value="no" name="question10" id="defaultcheckedq10" required>
+                            <input type="radio" formControlName="question10" value="no" name="question10" id="defaultcheckedq10"
+                                   [(ngModel)]="this.service.getFormDataDecl().question10">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -346,12 +375,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question11" value="yes" name="question11" id="defaultUncheckedq11" required>
+                            <input type="radio" formControlName="question11" value="yes" name="question11" id="defaultUncheckedq11"
+                                   [(ngModel)]="this.service.getFormDataDecl().question11">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question11" value="no" name="question11" id="defaultcheckedq11" required>
+                            <input type="radio" formControlName="question11" value="no" name="question11" id="defaultcheckedq11"
+                                   [(ngModel)]="this.service.getFormDataDecl().question11" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -375,12 +406,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question12" value="yes" name="question12" id="defaultUncheckedq12" required>
+                            <input type="radio" formControlName="question12" value="yes" name="question12" id="defaultUncheckedq12"
+                                   [(ngModel)]="this.service.getFormDataDecl().question12">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question12" value="no" name="question12" id="defaultcheckedq12" required>
+                            <input type="radio" formControlName="question12" value="no" name="question12" id="defaultcheckedq12"
+                                   [(ngModel)]="this.service.getFormDataDecl().question12" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -403,12 +436,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question13" value="yes" name="question13" id="defaultUncheckedq13" required>
+                            <input type="radio" formControlName="question13" value="yes" name="question13" id="defaultUncheckedq13"
+                                   [(ngModel)]="this.service.getFormDataDecl().question13" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question13" value="no" name="question13" id="defaultcheckedq13" required>
+                            <input type="radio" formControlName="question13" value="no" name="question13" id="defaultcheckedq13"
+                                   [(ngModel)]="this.service.getFormDataDecl().question13" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -435,12 +470,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question14" value="yes" name="question14" id="defaultUncheckedq14" required>
+                            <input type="radio" formControlName="question14" value="yes" name="question14" id="defaultUncheckedq14"
+                                   [(ngModel)]="this.service.getFormDataDecl().question14" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question14" value="no" name="question14" id="defaultcheckedq14" required>
+                            <input type="radio" formControlName="question14" value="no" name="question14" id="defaultcheckedq14"
+                                   [(ngModel)]="this.service.getFormDataDecl().question14" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -461,12 +498,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question15" value="yes" name="question15" id="defaultUncheckedq15" required>
+                            <input type="radio" formControlName="question15" value="yes" name="question15" id="defaultUncheckedq15"
+                                   [(ngModel)]="this.service.getFormDataDecl().question15" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question15" value="no" name="question15" id="defaultcheckedq15" required>
+                            <input type="radio" formControlName="question15" value="no" name="question15" id="defaultcheckedq15"
+                                   [(ngModel)]="this.service.getFormDataDecl().question15">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -481,12 +520,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question16" value="yes" name="question16" id="defaultUncheckedq16" required>
+                            <input type="radio" formControlName="question16" value="yes" name="question16" id="defaultUncheckedq16"
+                                   [(ngModel)]="this.service.getFormDataDecl().question16" >
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question16" value="no" name="question16" id="defaultcheckedq16" required>
+                            <input type="radio" formControlName="question16" value="no" name="question16" id="defaultcheckedq16"
+                                   [(ngModel)]="this.service.getFormDataDecl().question16">
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -501,12 +542,14 @@
                     </div>
                     <div class="col-sm-2">
                         <label class="radio-container m-r-55">Yes
-                            <input type="radio" formControlName="question17" value="yes" name="question17" id="defaultUncheckedq18" required>
+                            <input type="radio" formControlName="question17" value="yes" name="question17" id="defaultUncheckedq18"
+                                   [(ngModel)]="this.service.getFormDataDecl().question17">
                             <span class="checkmark"></span>
                         </label>
                         &nbsp; &nbsp;
                         <label class="radio-container">No
-                            <input type="radio" formControlName="question17" value="no" name="question17" id="defaultcheckedq18" required>
+                            <input type="radio" formControlName="question17" value="no" name="question17" id="defaultcheckedq18"
+                                   [(ngModel)]="this.service.getFormDataDecl().question17" >
                             <span class="checkmark"></span>
                         </label>
                     </div>
@@ -523,7 +566,7 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <button type="button" class="btn btn-default" >Previous</button>
+            <button type="back" class="btn btn-default" routerLink="..">Previous</button>
 
             <button type="submit" class="btn btn-primary"data-toggle="popover"
                 title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Submit</button>

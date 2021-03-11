@@ -1,4 +1,4 @@
-import {Details, Declarations, /*Home*/} from './../data/formData.model';
+import {Details, Declarations, Homes, DetailsCommissioner, AdditionalInfo, DeclarationCommissioner } from './../data/formData.model';
 import { ApiService } from './../api.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
@@ -8,7 +8,10 @@ export class FormDataService{
 
      private formDataDetail= new Details();
      private formDataDecl= new Declarations();
-     //private formDataHome= new Home();
+     private formDataHome= new Homes();
+     private formDataDetailCommissioner = new DetailsCommissioner();
+     private formDataAdditionalInfo = new AdditionalInfo();
+     private formDataDeclarationCommissioner = new DeclarationCommissioner();
 
     setFormDataDetail(obj :Details){
       this.formDataDetail=obj;
@@ -27,11 +30,35 @@ export class FormDataService{
                   return this.formDataDecl;
                 }
 
-               /* setFormDataHome(obj :Home){
+                setFormDataHome(obj :Homes){
                       this.formDataHome=obj;
                     }
 
-                    getFormDataHome():Home{
+                    getFormDataHome():Homes{
                       return this.formDataHome;
-                    }*/
+                    }
+
+             setFormDataDetailCommissioner(obj :DetailsCommissioner){
+                 this.formDataDetailCommissioner=obj;
+             }
+
+             getFormDataDetailCommissioner():DetailsCommissioner{
+                return this.formDataDetailCommissioner;
+             }
+
+             setFormDataAdditionalInfo(obj :AdditionalInfo){
+                this.formDataAdditionalInfo=obj;
+             }
+
+             getFormDataAdditionalInfo():AdditionalInfo{
+                return this.formDataAdditionalInfo;
+             }
+
+             setFormDataDeclarationCommissioner(obj :DeclarationCommissioner){
+                this.formDataDeclarationCommissioner=obj;
+             }
+
+             getFormDataDeclarationCommissioner():DeclarationCommissioner{
+                return this.formDataDeclarationCommissioner;
+             }
 }

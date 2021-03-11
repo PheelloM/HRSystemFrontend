@@ -1,0 +1,353 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+  <div class="container">
+    <a href="#" class="pull-left"><img
+      src="https://res.cloudinary.com/dz9esiuwh/image/upload/v1605257102/CCMA_Logo_p9lmjr.jpg" width="45"
+      alt="" class="d-inline-block align-middle mr-2"></a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">Job Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="bg-primary text-white">
+  <div class="container text-center">
+    <h1>Welcome to CCMA Job Portal</h1>
+    <p class="lead">Declaration & Consent</p>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row">
+      <div class="container text-center">
+        <h2>Final Step</h2>
+        <p class="lead">You are required to declare if all information you provided is true and correct.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row d-flex justify-content-center">
+  <div class="col mb-4">
+    <form [formGroup]="declairationCommissionerForm" (ngSubmit)="submit()">
+    <!-- Card -->
+    <div class="card">
+
+
+
+      <!--Card content-->
+      <div class="card-body">
+
+        <!--Title-->
+        <h4 class="card-title">CCMA POLICY ON DUTY TO DISCLOSE INFORMATION</h4>
+        <!--Text-->
+        <p class="card-text">Objectives:</p>
+
+        <p>1. The objective of the policy is to: </p>
+        <p>1.1	To ensure that all applicants for CCMA positions fully disclose any relevant information that will assist the Governing Body, or interviewing panel, in deciding whether or not to appoint the applicant.</p>
+        <p>1.2	To ensure a high standard of integrity, honesty and to preserve the reputation of both the CCMA and its employees.</p>
+        <p>1.3	To ensure that fit and proper persons are appointed as CCMA employees.</p>
+        <p class="card-text">Principles:</p>
+        <p>2.	The following principles shall apply:</p>
+        <p>2.1	 All applicants are expected to disclose all relevant and material information relating to their integrity, honesty, criminal records, any pending investigations, dishonesty, disciplinary records and investigations or charges of fraud brought against them.</p>
+        <p>2.2	Failure to disclose this information could result in non-appointment and/or termination of the contract or employment.</p>
+        <p style="color:red">(Further to your consent, the CCMA may conduct personal credential verifications with MIE/Kroll Background Screening (Pty) Ltd.)</p>
+        <p class="card-text">
+        </p>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <h4>Questions</h4>
+
+
+            <p>1. Are you a registered tax payer?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Yes / No</h4>
+
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q1Radio" name="q1Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q1Radio" id="defaultUncheckedq1" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q1Radio" name="q1Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q1Radio" id="defaultcheckedq1" >
+              <span class="checkmark"></span>
+            </label>
+
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="name">Your SARS registration Number:</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" style="width:100%" formControlName="q1SARSNumberTxtBox"
+                       [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q1SARSNumberTxtBox" name="q1SARSNumberTxtBox"
+                       id="q1SARSNumber" placeholder="SARS registration Number" >
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-8">
+            <p>2. Are your tax affairs in order?
+            <p>
+          </div>
+
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q2Radio" name="q2Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q2Radio" id="defaultUncheckedq2" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q2Radio" name="q2Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q2Radio" id="defaultcheckedq2" >
+              <span class="checkmark"></span>
+            </label>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>3. Do you have a valid driver’s license?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q3Radio" name="q3Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q3Radio" id="defaultUncheckedq3" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q3Radio" name="q3Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q3Radio" id="defaultcheckedq3" >
+              <span class="checkmark"></span>
+            </label>
+
+            <p class="card-text">
+            </p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>4. Do you have anything to disclose in terms of the above Policy on Disclosure, including but not limited to answering the following questions:
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q4Radio" name="q4Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q4Radio" id="defaultUncheckedq4" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q4Radio" name="q4Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q4Radio" id="defaultcheckedq4" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>5. Have you ever been charged and/or convicted of any criminal offence?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q5Radio" name="q5Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q5Radio" id="defaultUncheckedq5" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q5Radio" name="q5Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q5Radio" id="defaultcheckedq5" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>6. Are you presently under investigation by the South African Police Services or any other person (including a past or current employer) for any alleged criminal act or alleged acts of misconduct or dishonesty? </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q6Radio" name="q6Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q6Radio" id="defaultUncheckedq6" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q6Radio" name="q6Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q6Radio" id="defaultcheckedq6" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>7. Have your services ever been terminated for any alleged act of misconduct or any act involving allegations related to dishonesty e.g. fraud or theft?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q7Radio" name="q7Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q7Radio" id="defaultUncheckedq7" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q7Radio"name="q7Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q7Radio" id="defaultcheckedq7" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>8. Have you ever been suspended or disbarred from any professional organisation?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q8Radio" name="q8Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q8Radio" id="defaultUncheckedq8" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q8Radio" name="q8Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q8Radio" id="defaultcheckedq8" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>9. Do you have anything else that you think is of relevance that you may want to disclose or think requires disclosure?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q9Radio" name="q9Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q9Radio" id="defaultUncheckedq9" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q9Radio" name="q9Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q9Radio" id="defaultcheckedq9" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="name">If you answer yes to any of the above, please provide all relevant disclosure information below.</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea class="input--style-6" formControlName="q9CommentTxtBox" type="text" style="width:100%"
+                          [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q9CommentTxtBox" id="q9disclosure" name=""
+                          placeholder="If you answer yes to any of the above, please provide all relevant disclosure information" ></textarea>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <p>10. Do you have any business interests e.g. do you own or are you a part owner of any business?
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <label class="radio-container m-r-55">Yes
+              <input type="radio" formControlName="q10Radio" name="q10Radio" value="yes"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q10Radio" id="defaultUncheckedq10" >
+              <span class="checkmark"></span>
+            </label>
+            &nbsp; &nbsp;
+            <label class="radio-container">No
+              <input type="radio" formControlName="q10Radio" name="q10Radio" value="no"
+                     [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q10Radio" id="defaultcheckedq10" >
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="name">If yes, please explain:</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea class="input--style-6" formControlName="q10CommentTxtBox" type="text" style="width:100%"
+                          [(ngModel)]="this.service.getFormDataDeclarationCommissioner().q10CommentTxtBox" id="q10_explain" name=""
+                          placeholder="If yes, please explain:" ></textarea>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="form-row p-t-20">
+          <div class="row d-flex justify-content-center">
+            <button type="back" class="btn btn-default" routerLink="/additionalInfo">Previous</button>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+<!-- Default button -->
+
+
+
+
+<!-- Footer -->
+<footer class="py-3 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; CCMA 2020</p>
+  </div>
+  <!-- /.container -->
+</footer>

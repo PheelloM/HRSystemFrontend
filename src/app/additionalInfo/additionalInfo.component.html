@@ -1,0 +1,351 @@
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w905">
+
+    <div class="card card-6">
+      <div class="card-heading">
+        <h2 class="title">&nbsp; &nbsp; Additional Infomation</h2>
+      </div>
+      <form [formGroup]="additionalInfoForm" (ngSubmit)="submit()">
+        <div class="form-row">
+          <div class="name">Position applying for</div>
+          <div class="value">
+
+
+
+            <p class="name">Job Title</p>
+            <div class="row">
+
+
+                <label class="radio-container m-r-55">Commissioner
+                  <input type="radio"  id="defaultUncheckedq3" formControlName="jobTitle" name="jobTitle"
+                         value="yes" [(ngModel)]="this.service.getFormDataAdditionalInfo().jobTitle">
+                  <span class="checkmark"></span>
+                </label>
+                &nbsp; &nbsp;
+                <label class="radio-container">Senior Commissioner
+                  <input type="radio"  id="defaultcheckedq3" formControlName="jobTitle" name="jobTitle"
+                         value="no" [(ngModel)]="this.service.getFormDataAdditionalInfo().jobTitle">
+                  <span class="checkmark"></span>
+                </label>
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="name">Employment Status</div>
+          <div class="value">
+            <div class="row">
+              <div class="col-sm-5">
+                <label class="custom-control-label" for="internal_external_applicant">Internal / External Applicant</label>
+                <!-- Default unchecked -->
+                <div class="input-group">
+                  <div class="rs-select2 js-select-simple select--no-search">
+                    <select formControlName="external_Applicant" name="external_Applicant" id="internal_external_applicant"
+                            [(ngModel)]="this.service.getFormDataAdditionalInfo().external_Applicant">
+                      <option value="">Choose option</option>
+                      <option value="Internal">Internal</option>
+                      <option value="External">External</option>
+                    </select>
+                    <div class="select-dropdown"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="value" *ngIf="additionalInfoForm.get('external_Applicant').value === 'Internal'">
+
+              <div class="row">
+                <p>&nbsp; &nbsp; Internal Applicant &nbsp;&nbsp;</p>
+
+                <label class="radio-container">Full-time
+                  <input type="radio"  id="defaultUncheckedfulltime" formControlName="fulltimeRadios" name="fulltimeRadios"
+                         value="Full-time" [(ngModel)]="this.service.getFormDataAdditionalInfo().fulltimeRadios">
+                  <span class="checkmark"></span>
+                </label>
+                &nbsp; &nbsp;
+                <label class="radio-container">Part-time
+                  <input type="radio"  id="defaultCheckedparttime" formControlName="fulltimeRadios" name="fulltimeRadios"
+                         value="Part-time" [(ngModel)]="this.service.getFormDataAdditionalInfo().fulltimeRadios">
+                  <span class="checkmark"></span>
+                </label>
+
+
+
+              </div>
+              <div class="form-row">
+                <div class="name">Internal Candidate Current Position In CCMA</div>
+                <div class="value">
+                  <div class="input-group">
+                    <input class="input--style-6" type="text" formControlName="currentPosition" name="currentPosition"
+                           id="current_position" placeholder="Current position" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="name">Internal Candidate Region</div>
+                <div class="value">
+                  <div class="input-group">
+                    <input class="input--style-6" type="text" formControlName="region" name="region"
+                           id="region_selected" placeholder="Internal Candidate Region" >
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row p-t-20">
+                <label class="name">Internal Candidate Applying for Upgrade </label>
+                <label class="name" style="color:red">(This will only apply for the SNR PT Role)</label>
+
+                <div class="row row-space">
+                  <label class="radio-container m-r-55">Yes
+                    <input type="radio" formControlName="exist" name="exist" id="internal_candidate_yes"
+                           value="yes">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">No
+                    <input type="radio" formControlName="exist" name="exist" id="internal_candidate_no"
+                           value="no">
+                    <span class="checkmark"></span>
+                  </label>
+
+                  <div class="value">
+
+                    <div class="input-group">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                        <select formControlName="province" name="province" id="province_selected" >
+                          <option value="">Choose Province</option>
+                          <option value="Easten Cape">Eastern Cape</option>
+                          <option value="Free State">Free State</option>
+                          <option value="Gauteng">Gauteng</option>
+                          <option value="Kwazulu-Natal">KwaZulu-Natal</option>
+                          <option value="Limpopo">Limpopo</option>
+                          <option value="Mpumalanga">Mpumalanga</option>
+                          <option value="Mpumalanga">Northern Cape</option>
+                          <option value="North West">North West</option>
+                          <option value="Western Cape">Western Cape</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="value" *ngIf="additionalInfoForm.get('external_Applicant').value === 'External'">
+
+              <div class="row">
+                  <label class="custom-control-label" for="defaultUncheckedexternalfull_time">External Applicant</label>
+              </div>
+              <div class="row">
+                <label class="radio-container">Full-time
+                  <input type="radio"  id="defaultUncheckedexternalfull_time" formControlName="defaultExampleRadiosfull_time"
+                         name="defaultExampleRadiosfull_time" value="Full-time"
+                         [(ngModel)]="this.service.getFormDataAdditionalInfo().defaultExampleRadiosfull_time">
+                  <span class="checkmark"></span>
+                </label>
+                &nbsp; &nbsp;
+                <label class="radio-container">Part-time
+                  <input type="radio"  id="defaultcheckedexternalpart_time" formControlName="defaultExampleRadiosfull_time"
+                         name="defaultExampleRadiosfull_time" value="Part-time"
+                         [(ngModel)]="this.service.getFormDataAdditionalInfo().defaultExampleRadiosfull_time">
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="row">
+                <label class="radio-container">Commissioner
+                  <input type="radio"  id="defaultUncheckedcommissioner_comissioner" formControlName="commissionerRadios2"
+                         name="commissionerRadios2" value="Commissioner"
+                         [(ngModel)]="this.service.getFormDataAdditionalInfo().commissionerRadios2">
+                  <span class="checkmark"></span>
+                </label>
+                &nbsp; &nbsp;
+                <label class="radio-container">Senior Commissioner
+                  <input type="radio"  id="defaultCheckedcommissioner_senior" formControlName="commissionerRadios2"
+                         name="commissionerRadios2" value="Part-time"
+                         [(ngModel)]="this.service.getFormDataAdditionalInfo().commissionerRadios2">
+                  <span class="checkmark"></span>
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="form-row">
+            <div class="name">MEDIATION and ARBITRATION EXPERIENCE</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="mediation_and_ARBITRATION_Experience" id="mediation_and_arbitration_experience"
+                          [(ngModel)]="this.service.getFormDataAdditionalInfo().mediation_and_ARBITRATION_Experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="additionalInfoFormControl.mediation_and_ARBITRATION_Experience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="additionalInfoFormControl.mediation_and_ARBITRATION_Experience.errors.required" class="error">
+                      MEDIATION and ARBITRATION EXPERIENCE is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">INDUSTRIAL RELATION EXPERIENCE</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="industrial_RELATION_Experience" id="industrial_relation_experience"
+                          [(ngModel)]="this.service.getFormDataAdditionalInfo().industrial_RELATION_Experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="additionalInfoFormControl.industrial_RELATION_Experience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="additionalInfoFormControl.industrial_RELATION_Experience.errors.required" class="error">
+                      INDUSTRIAL RELATION EXPERIENCE is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">FACILITATION / TRAINING EXPERIENCE</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="facilitation_TRAINING_Experience" id="facilitation_training_experience"
+                          [(ngModel)]="this.service.getFormDataAdditionalInfo().facilitation_TRAINING_Experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="additionalInfoFormControl.facilitation_TRAINING_Experience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="additionalInfoFormControl.facilitation_TRAINING_Experience.errors.required" class="error">
+                      FACILITATION / TRAINING EXPERIENCE is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">MANAGEMENT / LEADERSHIP EXPERIENCE</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="management_LEADERSHIP_Experience" id="management_lEADERSHIP_experience"
+                          [(ngModel)]="this.service.getFormDataAdditionalInfo().management_LEADERSHIP_Experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="additionalInfoFormControl.management_LEADERSHIP_Experience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="additionalInfoFormControl.management_LEADERSHIP_Experience.errors.required" class="error">
+                      MANAGEMENT / LEADERSHIP EXPERIENCE is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">BARGAINING EXPERIENCE</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="bargaining_Experience" id="bargaining_experience"
+                          [(ngModel)]="this.service.getFormDataAdditionalInfo().bargaining_Experience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="additionalInfoFormControl.bargaining_Experience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="additionalInfoFormControl.bargaining_Experience.errors.required" class="error">
+                      BARGAINING EXPERIENCE is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-5">
+                  <label class="custom-control-label" for="name_bargaining_experience">Name of Council</label>
+
+                  <div class="input-group">
+                    <div class="rs-select2 js-select-simple select--no-search">
+                      <select formControlName="name_of_bargaining" name="name_of_bargaining" id="name_bargaining_experience"
+                              [(ngModel)]="this.service.getFormDataAdditionalInfo().name_of_bargaining">
+                        <option value="">Choose option</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                      </select>
+                      <div class="select-dropdown"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button type="back" class="btn btn-default" routerLink="/detailsCommissioner">Previous</button>
+
+            <button class="btn btn--radius-2 btn--blue-2" type="submit" name="Submit">Next</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+

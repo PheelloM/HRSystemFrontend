@@ -2,7 +2,10 @@
 export class MyData{
 details = new Details();
 declarations =new Declarations();
-//home =new Home();
+homes =new Homes();
+detailsCommissioner = new DetailsCommissioner();
+additionalInfo = new AdditionalInfo();
+declarationCommissioner = new DeclarationCommissioner();
 }
 
 
@@ -11,6 +14,7 @@ export class Details{
       firstName: '';
       lastName: string;
       gender: '';
+      //gender_other1: string;
       race: string;
       isSouthAfrican: boolean;
       idNumber: number;
@@ -31,44 +35,103 @@ export class Details{
 }
 
 export class Declarations{
-        question1: boolean;
+        question1: string;
         q1Comment: string;
-        question2: boolean;
+        question2: string;
         q2Comment: string;
-        question3: boolean;
+        question3: string;
         q3Comment: string;
-        question4: boolean;
+        question4: string;
         q4Comment: string;
-        question5: boolean;
+        question5: string;
         q5Comment: string;
-        question6: boolean;
+        question6: string;
         q6Comment: string;
-        question7: boolean;
+        question7: string;
         q7Comment: string;
-        question8: boolean;
+        question8: string;
         q8Comment: string;
-        question9: boolean;
+        question9: string;
         q9Comment: string;
-        question10: boolean;
+        question10: string;
         q10Comment: string;
-        question11: boolean;
+        question11: string;
         q11Comment: string;
-        question12: boolean;
+        question12: string;
         q12Comment: string;
-        question13: boolean;
+        question13: string;
         q13Comment: string;
-        question14: boolean;
+        question14: string;
         q14Comment: string;
-        question15: boolean;
+        question15: string;
         q15Comment: string;
-        question16: boolean;
+        question16: string;
         q16Comment: string;
-        question17: boolean;
+        question17: string;
         q17Comment: string;
 }
 
-/*export class Home{
-  seniorJavaDeveloperJobReferenceNumber: string;
-}*/
+export class Homes{
+        referencenumber: string;
+        }
+
+export class DetailsCommissioner{
+      title: '';
+      firstName: '';
+      lastName: string;
+      gender: '';
+      //gender_other1: string;
+      race: string;
+      isSouthAfrican: boolean;
+      idNumber: number;
+      passportNumber: string;
+      countryOfIssue: string;
+      expiryDate: string;
+      workPermit: boolean;
+      workPermitDetails: string;
+      disability: boolean;
+      disabilityOther: string;
+      email: string;
+      contactNumber: number;
+      altContactNumber: number;
+      resAddress: string;
+      postAddress: string;
+      highestGradePassed: string;
+      workExperience: string;
+      firstPref: string;
+      secondPref: string;
+      thirdPref: string;
+      forthPref: string;
+}
+
+export class AdditionalInfo{
+      jobTitle: '';
+      external_Applicant: '';
+      fulltimeRadios: '';
+      defaultExampleRadiosfull_time: '';
+      commissionerRadios2: '';
+      mediation_and_ARBITRATION_Experience: string;
+      industrial_RELATION_Experience: '';
+      facilitation_TRAINING_Experience: string;
+      management_LEADERSHIP_Experience: string;
+      bargaining_Experience: string;
+      name_of_bargaining: string;
+}
+
+export class DeclarationCommissioner{
+        q1Radio: string;
+        q1SARSNumberTxtBox: string;
+        q2Radio: '';
+        q3Radio: string;
+        q4Radio: string;
+        q5Radio: string;
+        q6Radio: string;
+        q7Radio: '';
+        q8Radio: string;
+        q9Radio: string;
+        q10Radio: string;
+        q9CommentTxtBox: string;
+        q10CommentTxtBox: string;
+}
 
 

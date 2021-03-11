@@ -1,0 +1,849 @@
+<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+  <div class="wrapper wrapper--w905">
+
+    <div class="card card-6">
+      <div class="card-heading">
+        <h2 class="title">&nbsp; &nbsp; Personal Details</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="detailsCommissionerForm" (ngSubmit)="submit()">
+          <div class="form-row">
+            <div class="name">Title</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="title" name="title" id="title_select" [(ngModel)]="this.service.getFormDataDetailCommissioner().title">
+                    <option value="">Choose option</option>
+                    <option value="mr">Mr.</option>
+                    <option value="mrs">Mrs.</option>
+                    <option value="miss">Miss</option>
+                    <option value="dr">Dr.</option>
+                    <option value="prof">Prof.</option>
+                    <option value="other">Other</option>
+                  </select>
+
+                  <div *ngIf="detailsFormControl.title.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.title.errors.required" class="error">
+                      Title is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="value" *ngIf="detailsCommissionerForm.get('title').value === 'other'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" formControlName="title" name="title" id="title_other" style="width:100%"
+                         placeholder="If Other, please state" >
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-row m-b-55">
+            <div class="name">Full Names</div>
+            <div class="value">
+              <div class="row row-space">
+                <div class="col-2">
+                  <div class="input-group-desc">
+                    <input formControlName="firstName" class="input--style-6" type="text" name="txtFname"
+                           [(ngModel)]="this.service.getFormDataDetailCommissioner().firstName" id="first_name" placeholder="First name" />
+                    <div *ngIf="detailsFormControl.firstName.invalid " class="alert alert-danger">
+
+                      <div *ngIf="detailsFormControl.firstName.errors.required" class="error">
+                        First name is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-2">
+                  <div class="input-group-desc">
+                    <input formControlName="lastName" class="input--style-6" type="text" name="txtLname" id="last_name"
+                           [(ngModel)]="this.service.getFormDataDetailCommissioner().lastName" placeholder="Surname" />
+                    <div *ngIf="detailsFormControl.lastName.invalid " class="alert alert-danger">
+
+                      <div *ngIf="detailsFormControl.lastName.errors.required" class="error">
+                        Last name is required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row p-t-20">
+            <label class="name">Gender</label>
+            <div class="row row-space">
+              <label class="radio-container m-r-55">Male
+                <input formControlName="gender" value="male" type="radio" id="gender_male"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().gender"/>
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">Female
+                <input formControlName="gender" value="female" type="radio" id="gender_female"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().gender"/>
+                <span class="checkmark"></span>
+              </label>
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+              <label class="radio-container">Other
+                <input formControlName="gender" value="other" type="radio" id="gender_other_selected"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().gender"/>
+                <span class="checkmark"></span>
+              </label>
+              &nbsp; &nbsp; &nbsp; &nbsp;
+
+
+              <div class="value" *ngIf="detailsCommissionerForm.get('gender').value === 'other'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" formControlName="gender" name="gender" id="gender_other" style="width:250%"
+                         placeholder="If Other, please state" >
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row">
+            <div class="name">Race</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="race" id="race_selected" [(ngModel)]="this.service.getFormDataDetailCommissioner().race">
+                    <option value="">Choose option</option>
+                    <option value="african">African</option>
+                    <option value="white">White</option>
+                    <option value="indian">Indian</option>
+                    <option value="coloured">Coloured</option>
+                    <option value="other">Other</option>
+
+                  </select>
+
+                  <div *ngIf="detailsFormControl.race.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.race.errors.required" class="error">
+                      Race is required.
+                    </div>
+                  </div>
+
+                  &nbsp; &nbsp; &nbsp; &nbsp;
+
+                </div>
+              </div>
+
+              <div class="value" *ngIf="detailsCommissionerForm.get('race').value === 'other'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" formControlName="race" name="race" id="race_other" style="width:100%"
+                         placeholder="If Other, please state" >
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">SA ID Number</div>
+            <div class="value">
+              <div class="row row-space">
+                <p> Do you have South African ID</p>
+                <label class="radio-container m-r-55">Yes
+                  <input formControlName="isSouthAfrican" value="true" type="radio" id="id_yes"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().isSouthAfrican"/>
+                  <span class="checkmark"></span>
+                </label>
+                <label class="radio-container">No
+                  <input formControlName="isSouthAfrican" value="false" type="radio" id="id_no"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().isSouthAfrican"/>
+                  <span class="checkmark"></span>
+                </label>
+                <br />
+              </div>
+              <div id="ifYes" *ngIf="detailsCommissionerForm.get('isSouthAfrican').value === 'true'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" formControlName="idNumber" id="id_number"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().idNumber" placeholder="ID Number" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="ifNo" *ngIf="detailsCommissionerForm.get('isSouthAfrican').value === 'false'">
+            <div class="form-row">
+              <div class="name">Passport Number</div>
+              <div class="value">
+                <div class="input-group">
+                  <input formControlName="passportNumber" class="input--style-6" type="text" id="passport_number"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().passportNumber" placeholder="Passport Number" />
+                </div>
+                <div class="input-group">
+                  <input formControlName="countryOfIssue" class="input--style-6" type="text" id="country_of_issue"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().countryOfIssue" placeholder="Country of Issue" />
+                </div>
+                <div class="input-group">
+                  <input formControlName="expiryDate" class="input--style-6" type="text" id="expiry_date"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().expiryDate" placeholder="Expiry  Date" />
+                </div>
+                <br />
+                <div class="row row-space">
+                  <p> Do you have a valid work permit</p>
+                  <label class="radio-container m-r-55">Yes
+                    <input formControlName="workPermit" type="radio" value="true" id="permit_yes"
+                           [(ngModel)]="this.service.getFormDataDetailCommissioner().workPermit" required>
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="radio-container">No
+                    <input formControlName="workPermit" type="radio" value="false" id="permit_no"
+                           [(ngModel)]="this.service.getFormDataDetailCommissioner().workPermit" required>
+                    <span class="checkmark"></span>
+                  </label>
+                  <br />
+
+
+                </div>
+                <div class="input-group">
+                  <input formControlName="workPermitDetails" class="input--style-6" type="text" name="permit_details"
+                         id="work_permit_details" [(ngModel)]="this.service.getFormDataDetailCommissioner().workPermitDetails" placeholder="Provide Details of work permit">
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="form-row p-t-20">
+            <label class="name">Disability</label>
+            <div class="row row-space">
+              <label class="radio-container m-r-55">Yes
+                <input formControlName="disability" value="true" type="radio" id="disability_yes"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().disability" required>
+                <span class="checkmark"></span>
+              </label>
+              <label class="radio-container">No
+                <input formControlName="disability" value="false" type="radio" id="disability_no"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().disability" required>
+                <span class="checkmark"></span>
+              </label>
+              <br />
+              <div class="value" *ngIf="detailsCommissionerForm.get('disability').value === 'true'">
+                <div class="input-group">
+                  <input class="input--style-6" type="text" style="width:305%" formControlName="disability" name="disability" id="disability_details"
+                         [(ngModel)]="this.service.getFormDataDetailCommissioner().disability" placeholder="If yes, please supply us with the nature of disability">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Email address</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="email" class="input--style-6" type="email" id="email_address"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().email" placeholder="example@email.com" />
+
+                <div *ngIf="detailsFormControl.email.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.email.errors.required" class="error">
+                    Email is required.
+                  </div>
+                  <div *ngIf="detailsFormControl.email.errors.email" class="error">
+                    Incorrect email format.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Contact number</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="contactNumber" class="input--style-6" type="text" id="contact_number"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().contactNumber" placeholder="+27830000001" />
+
+                <div *ngIf="detailsFormControl.contactNumber.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.contactNumber.errors.required" class="error">
+                    Contact number is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Alternative Contact number</div>
+            <div class="value">
+              <div class="input-group">
+                <input formControlName="altContactNumber" class="input--style-6" type="text"
+                       name="alternative_contact_number" [(ngModel)]="this.service.getFormDataDetailCommissioner().altContactNumber"
+                       placeholder="+27831111110" />
+
+                <div *ngIf="detailsFormControl.altContactNumber.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.altContactNumber.errors.required" class="error">
+                    Alternate contact number is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Resdidential Address</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea formControlName="resAddress" id="resAddress_Address" cols="30" rows="10"
+                          [(ngModel)]="this.service.getFormDataDetailCommissioner().resAddress"></textarea>
+                <div *ngIf="detailsFormControl.resAddress.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.resAddress.errors.required" class="error">
+                    Residential address is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Postal Address</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea formControlName="postAddress" id="" cols="30" rows="10"
+                          [(ngModel)]="this.service.getFormDataDetailCommissioner().postAddress"></textarea>
+                <div *ngIf="detailsFormControl.postAddress.invalid " class="alert alert-danger">
+
+                  <div *ngIf="detailsFormControl.postAddress.errors.required" class="error">
+                    Postal address is required.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Highest Standard Passed</div>
+            <div class="value">
+              &nbsp; &nbsp;
+              <label class="input-container">for eg.matric,grade 11, etc
+                <div class="input-group">
+                  <input formControlName="highestGradePassed" class="input--style-6" type="text"
+                         id="highest_grade_passed" [(ngModel)]="this.service.getFormDataDetailCommissioner().highestGradePassed"
+                         placeholder="Matric, Grade 11, Grade 10, etc" />
+
+                  <div *ngIf="detailsFormControl.highestGradePassed.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.highestGradePassed.errors.required" class="error">
+                      Email is required.
+                    </div>
+                  </div>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Qualification(s)</div>
+            <div class="value">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h4>Name of Qualification &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Institution &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Year Obtained &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addQualification()">Add Qualification</button>
+                </div>
+              </div>
+
+
+              <ng-container formArrayName="qualifications">
+                <div class="row" *ngFor="let _ of qualifications.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="qualification" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Qualification" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="institution" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Institution" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="year" class="input--style-6" type="text" style="width:100%"
+                               placeholder="year" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <button type="button" (click)="removeQualification(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Relevant Training Course(s)</div>
+            <div class="value">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h4>Name of Provider &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Course Completed &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Year Completed &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addTrainingCourse()">Add Training Course</button>
+                </div>
+              </div>
+
+
+              <ng-container formArrayName="trainingCourse">
+                <div class="row" *ngFor="let _ of trainingCourse.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="provider" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Provider" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="courseCompleted" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Course Completed" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="yearCompleted" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Year Completed" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <button type="button" (click)="removeTrainingCourse(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Language Proficiency</div>
+            <div class="value">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h4>Language &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Read &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Write &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Speak &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addLanguageProficiency()">Add Language Proficiency</button>
+                </div>
+              </div>
+
+
+              <ng-container formArrayName="languageProficiency">
+                <div class="row" *ngFor="let _ of languageProficiency.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="col-sm-2">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                        <select formControlName="language" id="language_select_2">
+                          <option value="">Choose option</option>
+                          <option value="Afrikaans">Afrikaans</option>
+                          <option value="English">English</option>
+                          <option value="Ndebele">Ndebele</option>
+                          <option value="Northern Sotho">Northern Sotho</option>
+                          <option value="Southern Sotho">Southern Sotho</option>
+                          <option value="Swati">Swati</option>
+                          <option value="Tsonga">Tsonga</option>
+                          <option value="Tswana">Tswana</option>
+                          <option value="Venda">Venda</option>
+                          <option value="Xhosa">Xhosa</option>
+                          <option value="Zulu">Zulu</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                        <select formControlName="read" id="read_select_2">
+                          <option value="">Choose option</option>
+                          <option value="Advanced">Advanced</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Expect">Expect</option>
+                          <option value="Intermediate">Intermediate</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                        <select formControlName="write" id="write_select_2">
+                          <option value="">Choose option</option>
+                          <option value="Advanced">Advanced</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Expect">Expect</option>
+                          <option value="Intermediate">Intermediate</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="rs-select2 js-select-simple select--no-search">
+                        <select formControlName="speak" id="speak_select_2">
+                          <option value="">Choose option</option>
+                          <option value="Advanced">Advanced</option>
+                          <option value="Beginner">Beginner</option>
+                          <option value="Expect">Expect</option>
+                          <option value="Intermediate">Intermediate</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <button type="button" (click)="removeLanguageProficiency(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Work Experience</div>
+            <div class="value">
+
+              <div class="input-group">
+                <div class="rs-select2 js-select-simple select--no-search">
+                  <select formControlName="workExperience" id="work_experience" [(ngModel)]="this.service.getFormDataDetailCommissioner().workExperience">
+                    <option value="">Choose option</option>
+                    <option value="no">No</option>
+                    <option value="0-2 years">0-2 year(s)</option>
+                    <option value="3-5 years">3-5 years</option>
+                    <option value="6-10 years">6-10 years</option>
+                    <option value="11-15 years">11-15 years</option>
+                    <option value="16-20 years">16-20 years</option>
+                    <option value="21+ years">21+ years</option>
+                  </select>
+                  <div *ngIf="detailsFormControl.workExperience.invalid " class="alert alert-danger">
+
+                    <div *ngIf="detailsFormControl.workExperience.errors.required" class="error">
+                      Work experience is required.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="value" *ngIf="detailsCommissionerForm.get('workExperience').value === '0-2 years' ||
+              detailsCommissionerForm.get('workExperience').value === '3-5 years'  ||
+              detailsCommissionerForm.get('workExperience').value === '6-10 years' ||
+              detailsCommissionerForm.get('workExperience').value === '11-15 years' ||
+              detailsCommissionerForm.get('workExperience').value === '16-20 years' ||
+              detailsCommissionerForm.get('workExperience').value === '21+ years'">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <h4>Name of Employer &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                  </div>
+                  <div class="col-sm-2">
+                    <h4>Job Title &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                  </div>
+                  <div class="col-sm-2">
+                    <h4>Date Started &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                  </div>
+                  <div class="col-sm-2">
+                    <h4>Date Ended &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                  </div>
+                  <div class="col-sm-2">
+                    <h4>Reason for Leaving&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                  </div>
+
+                  <div class="col-sm-2">
+
+                    <button type="button" (click)="addWorkExperience()">Add Work Experience</button>
+                  </div>
+                </div>
+
+                <ng-container formArrayName="workexperiences">
+                  <div class="row" *ngFor="let _ of workexperiences.controls; index as i">
+                    <ng-container [formGroupName]="i">
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="nameofemployer" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Name of Employer" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="jobtitle" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Job Title" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="datestarted" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Date Started" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="dateended" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Date Ended" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="reasonforleaving" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Reason for Leaving" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <button type="button" (click)="removeWorkExperience(i)">remove</button>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Membership of Professional Bodies</div>
+            <div class="value">
+              <div class="row">
+
+                <div class="col-sm-2">
+                  <h4>Name of Institution &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Current &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addProfesionalBodies()">Add Profesional bodies</button>
+                </div>
+              </div>
+
+              <ng-container formArrayName="profBodies">
+                <div *ngFor="let _ of profBodies.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="row">
+                      <div class="col-sm-2">
+                        <div class="input-group">
+                          <input formControlName="institution" class="input--style-6" type="text" style="width:100%"
+                                 placeholder="Institution" />
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="rs-select2 js-select-simple select--no-search">
+                          <select formControlName="current" id="current_select_2">
+                            <option value="">Choose option</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-2">
+                        <button type="button" (click)="removeProfesionalBody(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Reference(s)</div>
+            <div class="value">
+              <div class="row">
+                <div class="col-sm-2">
+                  <h4>Name of Person &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Mobile/Telephone Number &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Company and Position &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <h4>Relationship To You &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                </div>
+                <div class="col-sm-2">
+                  <button type="button" (click)="addReference()">Add Qualification</button>
+                </div>
+              </div>
+
+
+              <ng-container formArrayName="reference">
+                <div class="row" *ngFor="let _ of reference.controls; index as i">
+                  <ng-container [formGroupName]="i">
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="nameOfPerson" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Name of Person" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="mobileNumber" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Mobile/Telephone Number" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="companyAndPosition" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Company and Position" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <input formControlName="relationshipToYou" class="input--style-6" type="text" style="width:100%"
+                               placeholder="Relationship To You" />
+                      </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="input-group">
+                        <button type="button" (click)="removeReference(i)">remove</button>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Position Applying For First Preference</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" formControlName="firstPref" name="firstPref"
+                       id="first_Preference" placeholder="Position Applying For First Preference"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().firstPref">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Position Applying For Second Preference</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" formControlName="secondPref" name="secondPref"
+                       id="second_Preference" placeholder="Position Applying For Second Preference"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().secondPref">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Position Applying For Third Preference</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" formControlName="thirdPref" name="thirdPref"
+                       id="third_Preference" placeholder="Position Applying For Third Preference"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().thirdPref">
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Position Applying For Forth Preference</div>
+            <div class="value">
+              <div class="input-group">
+                <input class="input--style-6" type="text" formControlName="forthPref" name="forthPref"
+                       id="forth_Preference" placeholder="Position Applying For Forth Preference"
+                       [(ngModel)]="this.service.getFormDataDetailCommissioner().forthPref">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Upload CV / Resume </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_cv" id="file" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your CV/Resume. Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">ID/Passport </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_id" id="fileid" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your ID / Passport. Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="name">Qualification(s) </div>
+            <div class="value">
+              <div class="input-group js-input-file">
+                <input (change)="onFileChange($event)" class="input-file" type="file" name="file_qualification" id="filequalification" />
+                <label class="label--file" for="file">Choose file</label>
+                <span class="input-file__info">No file chosen</span>
+              </div>
+              <div class="label--desc">Upload your Qualification(s). Max file size 5 MB, file format pdf and word doc.</div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <button class="btn btn--radius-2 btn--blue-2" type="submit" name="Submit">Next</button>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
