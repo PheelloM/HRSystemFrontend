@@ -139,7 +139,6 @@ formdataObj:MyData;
   }
 
   removeQualification(index){
-    debugger;
     this.qualifications.removeAt(index);
   }
 
@@ -153,7 +152,6 @@ formdataObj:MyData;
     }
 
     removeTrainingCourse(index){
-      debugger;
       this.trainingCourse.removeAt(index);
     }
 
@@ -168,7 +166,6 @@ formdataObj:MyData;
         }
 
         removeReference(index){
-          debugger;
           this.reference.removeAt(index);
         }
 
@@ -183,7 +180,6 @@ formdataObj:MyData;
     }
 
     removeLanguageProficiency(index){
-      debugger;
       this.languageProficiency.removeAt(index);
     }
 
@@ -200,7 +196,6 @@ formdataObj:MyData;
     }
 
     removeWorkExperience(index){
-      debugger;
       this.workexperiences.removeAt(index);
     }
 
@@ -227,7 +222,6 @@ formdataObj:MyData;
   }
 
   submit(){
-    debugger;
  // this._router.navigate(['/additionalInfo', this.detailsCommissionerForm]);
 //this.detailsObj.gender='gfh';
    //console.log(this.detailsCommissionerForm.value.firstName);

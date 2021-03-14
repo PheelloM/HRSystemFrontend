@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
-import {FormDataService} from './../data/formData.service';
+import { FormDataService } from './../data/formData.service';
 import { Location } from '@angular/common';
 import { ApiService } from './../api.service';
-import {Details, Declarations, Homes, MyData} from './../data/formData.model';
+import { Details, Declarations, Homes, MyData } from './../data/formData.model';
 
 @Component({
   templateUrl: './details.component.html',
@@ -12,12 +12,12 @@ import {Details, Declarations, Homes, MyData} from './../data/formData.model';
 })
 export class DetailsComponent implements OnInit {
 
-formdataObj:MyData;
+  formdataObj: MyData;
   detailsForm: FormGroup;
- detailsObj: Details = new Details();
-  constructor(private _fb: FormBuilder, private _api: ApiService,private _router: Router
-  ,public service:FormDataService){
-  this.formdataObj=new MyData();
+  detailsObj: Details = new Details();
+  constructor(private _fb: FormBuilder, private _api: ApiService, private _router: Router
+    , public service: FormDataService) {
+    this.formdataObj = new MyData();
   }
 
   ngOnInit(): void {
@@ -52,14 +52,14 @@ formdataObj:MyData;
         })
       ]),
       workexperiences: new FormArray([
-              new FormGroup({
-                nameofemployer: new FormControl(''),
-                jobtitle: new FormControl(''),
-                datestarted: new FormControl(''),
-                dateended: new FormControl(''),
-                reasonforleaving: new FormControl('')
-              })
-            ]),
+        new FormGroup({
+          nameofemployer: new FormControl(''),
+          jobtitle: new FormControl(''),
+          datestarted: new FormControl(''),
+          dateended: new FormControl(''),
+          reasonforleaving: new FormControl('')
+        })
+      ]),
       workExperience: ['', Validators.required],
       profBodies: new FormArray([
         new FormGroup({
@@ -77,10 +77,10 @@ formdataObj:MyData;
   }
 
   get workexperiences() {
-      return this.detailsForm.get('workexperiences') as FormArray
-    }
+    return this.detailsForm.get('workexperiences') as FormArray
+  }
 
-  get profBodies(){
+  get profBodies() {
     return this.detailsForm.get('profBodies') as FormArray
   }
 
@@ -88,7 +88,7 @@ formdataObj:MyData;
     return this.detailsForm.controls;
   }
 
-  addQualification(){
+  addQualification() {
     const control = new FormGroup({
       qualification: new FormControl(''),
       institution: new FormControl(''),
@@ -97,28 +97,26 @@ formdataObj:MyData;
     this.qualifications.push(control);
   }
 
-  removeQualification(index){
-    debugger;
+  removeQualification(index) {
     this.qualifications.removeAt(index);
   }
 
-  addWorkExperience(){
-      const control = new FormGroup({
-        nameofemployer: new FormControl(''),
-        jobtitle: new FormControl(''),
-        datestarted: new FormControl(''),
-        dateended: new FormControl(''),
-        reasonforleaving: new FormControl('')
-      })
-      this.workexperiences.push(control);
-    }
+  addWorkExperience() {
+    const control = new FormGroup({
+      nameofemployer: new FormControl(''),
+      jobtitle: new FormControl(''),
+      datestarted: new FormControl(''),
+      dateended: new FormControl(''),
+      reasonforleaving: new FormControl('')
+    })
+    this.workexperiences.push(control);
+  }
 
-    removeWorkExperience(index){
-      debugger;
-      this.workexperiences.removeAt(index);
-    }
+  removeWorkExperience(index) {
+    this.workexperiences.removeAt(index);
+  }
 
-  addProfesionalBodies(){
+  addProfesionalBodies() {
     const control = new FormGroup({
       institution: new FormControl(''),
       current: new FormControl('false')
@@ -126,7 +124,7 @@ formdataObj:MyData;
     this.profBodies.push(control);
   }
 
-  removeProfesionalBody(index){
+  removeProfesionalBody(index) {
     this.profBodies.removeAt(index);
   }
   get f() { return this.detailsForm.controls; }
@@ -140,40 +138,11 @@ formdataObj:MyData;
     }
   }
 
-  submit(){
-    debugger;
-
-//this.detailsObj.gender='gfh';
-    console.log(this.detailsForm.value.firstName);
-    this.detailsObj.title=this.detailsForm.value.title;
-    this.detailsObj.firstName=this.detailsForm.value.firstName;
-    this.detailsObj.lastName=this.detailsForm.value.lastName;
-    this.detailsObj.gender=this.detailsForm.value.gender;
-    this.detailsObj.race=this.detailsForm.value.race;
-    this.detailsObj.isSouthAfrican=this.detailsForm.value.isSouthAfrican;
-    this.detailsObj.idNumber=this.detailsForm.value.idNumber;
-    this.detailsObj.disability=this.detailsForm.value.disability;
-    this.detailsObj.email=this.detailsForm.value.email;
-    this.detailsObj.contactNumber=this.detailsForm.value.contactNumber;
-    this.detailsObj.resAddress=this.detailsForm.value.resAddress;
-    this.detailsObj.highestGradePassed=this.detailsForm.value.highestGradePassed;
-    this.detailsObj.workExperience=this.detailsForm.value.workExperience;
-    this.formdataObj.details=this.detailsObj;
-    this.service.setFormDataDetail(this.formdataObj.details);
-
-    console.log(JSON.stringify(this.service.getFormDataHome()));
-
-    console.log('service');
-  //this._router.navigate(['/declaration', this.detailsForm]);
-    if(!this.detailsObj.firstName || !this.detailsObj.title || !this.detailsObj.lastName
-    || !this.detailsObj.gender || !this.detailsObj.race || !this.detailsObj.isSouthAfrican
-    || !this.detailsObj.email || !this.detailsObj.contactNumber || !this.detailsObj.resAddress
-    || !this.detailsObj.highestGradePassed){
-      return ;
-    } else{
-    this._router.navigate(['/declaration', this.detailsForm]);
-
-    }
-
+  submit() {
+    this._api.savePersonalDetails(this.detailsForm.value)
+      .subscribe(res => {
+        localStorage.setItem('person', JSON.stringify(res));
+        this._router.navigate(['/declaration', this.detailsForm]);
+      })
   }
 }

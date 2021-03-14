@@ -29,7 +29,6 @@ export class TermsAndConditionsCommissionerComponent implements OnInit {
         }
 
   submit(){
-     debugger;
      this.isSubmitted = true;
              if(!this.termsAndconditionsCommissionerForm.valid) {
                 alert("Enter Required Value");

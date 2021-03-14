@@ -62,14 +62,12 @@ formdataObj:MyData;
     }
 
   submit(){
-    debugger;
 
     //this._router.navigate(['/details', this.homeForm]);
 
   }
 
   onSubmit(f: NgForm) {
-    debugger;
     this.homeObj.referencenumber=this.homeForm.value.referencenumber;
     console.log(this.homeObj.referencenumber);
     this.formdataObj.homes=this.homeObj;
@@ -81,7 +79,6 @@ formdataObj:MyData;
   }
 
   onCommissionerSubmit(a: NgForm) {
-      debugger;
       this.homeObj.referencenumber=this.homeForm.value.referencenumber;
       console.log(this.homeObj.referencenumber);
       this.formdataObj.homes=this.homeObj;

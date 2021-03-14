@@ -108,6 +108,7 @@
     </div>
 
   </div>
+
     <ng-template #content let-modal>
       <div class="modal-header">
         <h5 class="modal-title" id="modal-java-title">Senior Java Developer | Ends 28 November 2020</h5>
@@ -117,12 +118,12 @@
       </div>
 
             <div class="modal-body">
-              <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" novalidate>
+              <!-- <form [formGroup]="ngForm" (ngSubmit)="onSubmit(f.value)" novalidate> -->
 
                 <div class="form-group">
                   <label for="refnumber">Ref.</label>
                   <div class="input-group">
-                    <input type="text" formControlName="refnumber"  id="refnumber" value ="0122/2020" name="refnumber"
+                    <input type="text"  id="refnumber" value ="0122/2020" name="refnumber"
                            readonly>
                   </div>
                 </div>
@@ -143,10 +144,10 @@
                   5+ Related Years of Experience.
                 </div>
                 <div class="modal-footer">
-                  <button type="onSubmit(f)" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click')">Apply Online</button>
+                  <button type="button" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click'); onSubmit();">Apply Online</button>
                   <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
                 </div>
-              </form>
+              <!-- </form> -->
             </div>
 
           </ng-template>
@@ -160,7 +161,7 @@
       </div>
 
       <div class="modal-body">
-        <form #a="ngForm" (ngSubmit)="onCommissionerSubmit(a.value)" novalidate>
+        <!-- <form #a="ngForm" (ngSubmit)="onCommissionerSubmit(a.value)" novalidate> -->
 
           <div class="form-group">
             <label for="refnumber">Ref.</label>
@@ -186,10 +187,10 @@
             5+ Related Years of Experience.
           </div>
           <div class="modal-footer">
-            <button type="onCommissionerSubmit(f)" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click')">Apply Online</button>
+            <button type="button" data-dismiss="modal" class="btn btn-outline-dark" class="btn btn-success" (click)="modal.close('Save click'); onCommissionerSubmit();">Apply Online</button>
             <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancel</button>
           </div>
-        </form>
+        <!-- </form> -->
       </div>
 
     </ng-template>

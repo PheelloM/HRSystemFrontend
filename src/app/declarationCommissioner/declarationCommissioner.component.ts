@@ -58,7 +58,6 @@ isSubmitted = false;
 
 
   submit(){
-    debugger;
 
     this.isSubmitted = true;
         if(!this.declairationCommissionerForm.valid) {

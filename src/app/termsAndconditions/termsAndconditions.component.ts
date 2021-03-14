@@ -29,7 +29,6 @@ export class TermsAndConditionsComponent implements OnInit {
         }
 
   submit(){
-     debugger;
      this.isSubmitted = true;
              if(!this.termsAndconditionsForm.valid) {
                 alert("Enter Required Value");
