@@ -110,14 +110,14 @@ isSubmitted = false;
 
 
 
-            this._api.saveDeclaration(this.declairationForm.value)
+       //     this._api.saveDeclaration(this.declairationForm.value)
               //this._api.saveDeclaration(JSON.stringify(this.declObj,JSON.stringify(this.service.getFormDataDetail())
-                .subscribe(x => {
-                  debugger;
-                  this.router.navigate(['/declaration', this.declairationForm]);
-                }, e => {
-                  debugger;
-                })
+       //         .subscribe(x => {
+       //           debugger;
+       //           this.router.navigate(['/declaration', this.declairationForm]);
+       //         }, e => {
+        //          debugger;
+        //        })
 
 
       /*if(!this.declObj.question1 || !this.declObj.question2 || !this.declObj.question3
